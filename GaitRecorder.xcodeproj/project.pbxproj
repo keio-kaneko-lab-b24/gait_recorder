@@ -11,8 +11,9 @@
 		17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799DF29D3F97700EF4DD1 /* ContentView.swift */; };
 		17D799E229D3F97900EF4DD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D799E129D3F97900EF4DD1 /* Assets.xcassets */; };
 		17D799E529D3F97900EF4DD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D799E429D3F97900EF4DD1 /* Preview Assets.xcassets */; };
-		17D799E729D3F97900EF4DD1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799E629D3F97900EF4DD1 /* Persistence.swift */; };
-		17D799EA29D3F97900EF4DD1 /* GaitRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17D799E829D3F97900EF4DD1 /* GaitRecorder.xcdatamodeld */; };
+		17D799EA29D3F97900EF4DD1 /* GaitRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */; };
+		17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F129D3FA2000EF4DD1 /* Persistent.swift */; };
+		17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F529D4049B00EF4DD1 /* DateUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +22,9 @@
 		17D799DF29D3F97700EF4DD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17D799E129D3F97900EF4DD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D799E429D3F97900EF4DD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		17D799E629D3F97900EF4DD1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GaitRecorder.xcdatamodel; sourceTree = "<group>"; };
+		17D799F129D3FA2000EF4DD1 /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
+		17D799F529D4049B00EF4DD1 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 		17D799DC29D3F97700EF4DD1 /* GaitRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				17D799F729D4050C00EF4DD1 /* View */,
+				17D799F429D4041D00EF4DD1 /* Models */,
+				17D799F329D4041000EF4DD1 /* Utils */,
+				17D799F029D3F9FB00EF4DD1 /* Databases */,
 				17D799DD29D3F97700EF4DD1 /* GaitRecorderApp.swift */,
-				17D799DF29D3F97700EF4DD1 /* ContentView.swift */,
 				17D799E129D3F97900EF4DD1 /* Assets.xcassets */,
-				17D799E629D3F97900EF4DD1 /* Persistence.swift */,
-				17D799E829D3F97900EF4DD1 /* GaitRecorder.xcdatamodeld */,
 				17D799E329D3F97900EF4DD1 /* Preview Content */,
 			);
 			path = GaitRecorder;
@@ -71,6 +74,38 @@
 				17D799E429D3F97900EF4DD1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17D799F029D3F9FB00EF4DD1 /* Databases */ = {
+			isa = PBXGroup;
+			children = (
+				17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */,
+				17D799F129D3FA2000EF4DD1 /* Persistent.swift */,
+			);
+			path = Databases;
+			sourceTree = "<group>";
+		};
+		17D799F329D4041000EF4DD1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				17D799F529D4049B00EF4DD1 /* DateUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		17D799F429D4041D00EF4DD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		17D799F729D4050C00EF4DD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17D799DF29D3F97700EF4DD1 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D799EA29D3F97900EF4DD1 /* GaitRecorder.xcdatamodeld in Sources */,
-				17D799E729D3F97900EF4DD1 /* Persistence.swift in Sources */,
+				17D799EA29D3F97900EF4DD1 /* GaitRecord.xcdatamodeld in Sources */,
+				17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */,
+				17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */,
 				17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */,
 				17D799DE29D3F97700EF4DD1 /* GaitRecorderApp.swift in Sources */,
 			);
@@ -349,13 +385,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		17D799E829D3F97900EF4DD1 /* GaitRecorder.xcdatamodeld */ = {
+		17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */,
 			);
 			currentVersion = 17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */;
-			path = GaitRecorder.xcdatamodeld;
+			path = GaitRecord.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

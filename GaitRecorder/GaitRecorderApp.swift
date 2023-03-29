@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct GaitRecorderApp: App {
-    let persistenceController = PersistenceController.shared
-
+    let persistentController = PersistentController()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView().environment(\.managedObjectContext, persistentController.container.viewContext)
         }
     }
 }
