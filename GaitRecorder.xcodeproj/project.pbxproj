@@ -15,6 +15,10 @@
 		17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F129D3FA2000EF4DD1 /* Persistent.swift */; };
 		17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F529D4049B00EF4DD1 /* DateUtil.swift */; };
 		17D799F929D40B0900EF4DD1 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F829D40B0900EF4DD1 /* DBManager.swift */; };
+		17D799FC29D416DC00EF4DD1 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799FB29D416DC00EF4DD1 /* Text.swift */; };
+		17D799FF29D418DD00EF4DD1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799FE29D418DD00EF4DD1 /* Button.swift */; };
+		17D79A0129D418F900EF4DD1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D79A0029D418F900EF4DD1 /* View.swift */; };
+		17D79A0329D41CC200EF4DD1 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D79A0229D41CC200EF4DD1 /* StepView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		17D799F129D3FA2000EF4DD1 /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 		17D799F529D4049B00EF4DD1 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		17D799F829D40B0900EF4DD1 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		17D799FB29D416DC00EF4DD1 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		17D799FE29D418DD00EF4DD1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		17D79A0029D418F900EF4DD1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		17D79A0229D41CC200EF4DD1 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +67,7 @@
 		17D799DC29D3F97700EF4DD1 /* GaitRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				17D799F729D4050C00EF4DD1 /* View */,
+				17D799F729D4050C00EF4DD1 /* Views */,
 				17D799F429D4041D00EF4DD1 /* Models */,
 				17D799F329D4041000EF4DD1 /* Utils */,
 				17D799F029D3F9FB00EF4DD1 /* Databases */,
@@ -103,12 +111,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		17D799F729D4050C00EF4DD1 /* View */ = {
+		17D799F729D4050C00EF4DD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				17D799FA29D416CF00EF4DD1 /* Components */,
 				17D799DF29D3F97700EF4DD1 /* ContentView.swift */,
+				17D79A0229D41CC200EF4DD1 /* StepView.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17D799FA29D416CF00EF4DD1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17D799FB29D416DC00EF4DD1 /* Text.swift */,
+				17D799FE29D418DD00EF4DD1 /* Button.swift */,
+				17D79A0029D418F900EF4DD1 /* View.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +204,12 @@
 				17D799EA29D3F97900EF4DD1 /* Gait.xcdatamodeld in Sources */,
 				17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */,
 				17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */,
+				17D799FF29D418DD00EF4DD1 /* Button.swift in Sources */,
+				17D799FC29D416DC00EF4DD1 /* Text.swift in Sources */,
+				17D79A0129D418F900EF4DD1 /* View.swift in Sources */,
 				17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */,
 				17D799F929D40B0900EF4DD1 /* DBManager.swift in Sources */,
+				17D79A0329D41CC200EF4DD1 /* StepView.swift in Sources */,
 				17D799DE29D3F97700EF4DD1 /* GaitRecorderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +347,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,6 +377,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

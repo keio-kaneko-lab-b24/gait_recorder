@@ -6,13 +6,12 @@ struct DBManager {
      Gaitの追加
      */
     func saveGait(
-        recordId: Int, startUnixtime: Int, endUnixtime: Int,
+        recordId: Int, unixtime: Int,
         context: NSManagedObjectContext
     ) {
         let gait = Gait(context: context)
         gait.record_id = Int32(recordId)
-        gait.start_unixtime = Int64(startUnixtime)
-        gait.end_unixtime = Int64(endUnixtime)
+        gait.unixtime = Int64(unixtime)
         try? context.save()
     }
     
