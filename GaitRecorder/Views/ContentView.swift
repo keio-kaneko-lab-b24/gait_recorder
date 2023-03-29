@@ -11,6 +11,7 @@ struct ContentView: View {
     private var steps: FetchedResults<Step>
     
     var dbManager = DBManager()
+    let fileManager = UserFileManager()
     @State var isStartButton = false
     @State var isExportButton = false
     @State var nextRecordId = 0
@@ -25,9 +26,16 @@ struct ContentView: View {
             HStack {
                 Button(action: {
                     isExportButton.toggle()
+                    toCsv()
                 }){
                     Text("書き出し").button()
-                }.secondary()
+                }
+                .secondary()
+                .alert("歩行記録を書き出しました", isPresented: $isExportButton) {
+                    Button("OK") { /* Do Nothing */}
+                } message: {
+                    Text("「ファイルアプリ」>「このiPhone内」>「歩行記録アプリ」からファイルを確認できます。")
+                }
                 
                 Button(action: {
                     nextRecordId = dbManager.getLastRecordId(gaits: gaits, steps: steps) + 1
@@ -49,19 +57,23 @@ struct ContentView: View {
         }
         
         NavigationLink(
-            destination: StepView(recordId: nextRecordId),
+            // contextを明示的に渡す必要あり
+            // https://reasonable-code.com/swiftui-coredata-subview-error/
+            destination: StepView(recordId: nextRecordId)
+                .environment(\.managedObjectContext, self.context),
             isActive: $isStartButton
         ) {
             EmptyView()
         }
     }
     
+    // gaitを表示形式に変換する
     private func gaitString(gait: Gait) -> String {
         let time = unixtimeToDateString(unixtimeMillis: Int(gait.unixtime))
         return "\(Int(gait.record_id)): \(time)"
     }
 
-    // RecordIdに紐づくGaitとStepを削除する。
+    // RecordIdに紐づくGaitとStepを削除する
     private func deleteItems(offsets: IndexSet) {
         offsets.forEach { index in
             let record_id = Int(gaits[index].record_id)
@@ -70,6 +82,13 @@ struct ContentView: View {
                 dbManager.deleteStep(steps: steps, recordId: record_id, context: context)
             }
         }
+    }
+    
+    func toCsv() {
+        let gaitText = dbManager.gaitToCsv(gaits: gaits)
+        fileManager.saveFile(data: gaitText, fileName: "gait.csv")
+        let stepText = dbManager.stepToCsv(steps: steps)
+        fileManager.saveFile(data: stepText, fileName: "step.csv")
     }
 }
 

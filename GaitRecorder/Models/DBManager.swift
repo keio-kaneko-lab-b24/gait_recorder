@@ -12,6 +12,7 @@ struct DBManager {
         let gait = Gait(context: context)
         gait.record_id = Int32(recordId)
         gait.unixtime = Int64(unixtime)
+        print("save gait. \(recordId), \(unixtime)")
         try? context.save()
     }
     
@@ -26,7 +27,12 @@ struct DBManager {
         step.record_id = Int32(recordId)
         step.action_id = Int32(actionId)
         step.unixtime = Int64(unixtime)
-        try? context.save()
+        print("save step. \(recordId), \(actionId), \(unixtime)")
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
     }
     
     /*
@@ -67,5 +73,27 @@ struct DBManager {
     ) -> Int {
         return Int(max(gaits.first?.record_id ?? -1,
             steps.first?.record_id ?? -1))
+    }
+    
+    /*
+     GaitをCSV形式へ変換
+     */
+    func gaitToCsv(gaits: FetchedResults<Gait>) -> String {
+        var text = "record_id,unixtime\n"
+        for gait in gaits {
+            text += "\(gait.record_id),\(gait.unixtime)\n"
+        }
+        return text
+    }
+    
+    /*
+     StepをCSV形式へ変換
+     */
+    func stepToCsv(steps: FetchedResults<Step>) -> String {
+        var text = "record_id,unixtime,action_id\n"
+        for step in steps {
+            text += "\(step.record_id),\(step.unixtime),\(step.action_id)\n"
+        }
+        return text
     }
 }

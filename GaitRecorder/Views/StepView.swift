@@ -15,10 +15,10 @@ struct StepView: View {
                 Spacer()
                 
                 Button(action: {
-                    toggle.toggle()
                     dbManager.saveStep(
                         recordId: recordId, actionId: 1, unixtime: unixtime(),
                         context: context)
+                    toggle.toggle()
                 }) {
                     Text("←左").circle(enable: !toggle)
                 }.disabled(toggle)
@@ -26,10 +26,10 @@ struct StepView: View {
                 Spacer()
                 
                 Button(action: {
-                    toggle.toggle()
                     dbManager.saveStep(
                         recordId: recordId, actionId: 2, unixtime: unixtime(),
                         context: context)
+                    toggle.toggle()
                 }) {
                     Text("右→").circle(enable: toggle)
                 }.disabled(!toggle)

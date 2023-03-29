@@ -19,6 +19,7 @@
 		17D799FF29D418DD00EF4DD1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799FE29D418DD00EF4DD1 /* Button.swift */; };
 		17D79A0129D418F900EF4DD1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D79A0029D418F900EF4DD1 /* View.swift */; };
 		17D79A0329D41CC200EF4DD1 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D79A0229D41CC200EF4DD1 /* StepView.swift */; };
+		17D79A0729D4271500EF4DD1 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D79A0629D4271500EF4DD1 /* FileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		17D799FE29D418DD00EF4DD1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		17D79A0029D418F900EF4DD1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		17D79A0229D41CC200EF4DD1 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		17D79A0629D4271500EF4DD1 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		17D79A0829D42A8800EF4DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 		17D799DC29D3F97700EF4DD1 /* GaitRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				17D79A0829D42A8800EF4DD1 /* Info.plist */,
 				17D799F729D4050C00EF4DD1 /* Views */,
 				17D799F429D4041D00EF4DD1 /* Models */,
 				17D799F329D4041000EF4DD1 /* Utils */,
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				17D799F829D40B0900EF4DD1 /* DBManager.swift */,
+				17D79A0629D4271500EF4DD1 /* FileManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				17D799FC29D416DC00EF4DD1 /* Text.swift in Sources */,
 				17D79A0129D418F900EF4DD1 /* View.swift in Sources */,
 				17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */,
+				17D79A0729D4271500EF4DD1 /* FileManager.swift in Sources */,
 				17D799F929D40B0900EF4DD1 /* DBManager.swift in Sources */,
 				17D79A0329D41CC200EF4DD1 /* StepView.swift in Sources */,
 				17D799DE29D3F97700EF4DD1 /* GaitRecorderApp.swift in Sources */,
@@ -342,6 +348,8 @@
 				DEVELOPMENT_TEAM = 23V6V2PF9D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GaitRecorder/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -372,6 +380,8 @@
 				DEVELOPMENT_TEAM = 23V6V2PF9D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GaitRecorder/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
