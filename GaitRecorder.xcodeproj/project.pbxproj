@@ -11,9 +11,10 @@
 		17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799DF29D3F97700EF4DD1 /* ContentView.swift */; };
 		17D799E229D3F97900EF4DD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D799E129D3F97900EF4DD1 /* Assets.xcassets */; };
 		17D799E529D3F97900EF4DD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D799E429D3F97900EF4DD1 /* Preview Assets.xcassets */; };
-		17D799EA29D3F97900EF4DD1 /* GaitRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */; };
+		17D799EA29D3F97900EF4DD1 /* Gait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17D799E829D3F97900EF4DD1 /* Gait.xcdatamodeld */; };
 		17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F129D3FA2000EF4DD1 /* Persistent.swift */; };
 		17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F529D4049B00EF4DD1 /* DateUtil.swift */; };
+		17D799F929D40B0900EF4DD1 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D799F829D40B0900EF4DD1 /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GaitRecorder.xcdatamodel; sourceTree = "<group>"; };
 		17D799F129D3FA2000EF4DD1 /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 		17D799F529D4049B00EF4DD1 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		17D799F829D40B0900EF4DD1 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,7 @@
 		17D799F029D3F9FB00EF4DD1 /* Databases */ = {
 			isa = PBXGroup;
 			children = (
-				17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */,
+				17D799E829D3F97900EF4DD1 /* Gait.xcdatamodeld */,
 				17D799F129D3FA2000EF4DD1 /* Persistent.swift */,
 			);
 			path = Databases;
@@ -96,6 +98,7 @@
 		17D799F429D4041D00EF4DD1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				17D799F829D40B0900EF4DD1 /* DBManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,10 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D799EA29D3F97900EF4DD1 /* GaitRecord.xcdatamodeld in Sources */,
+				17D799EA29D3F97900EF4DD1 /* Gait.xcdatamodeld in Sources */,
 				17D799F629D4049B00EF4DD1 /* DateUtil.swift in Sources */,
 				17D799F229D3FA2000EF4DD1 /* Persistent.swift in Sources */,
 				17D799E029D3F97800EF4DD1 /* ContentView.swift in Sources */,
+				17D799F929D40B0900EF4DD1 /* DBManager.swift in Sources */,
 				17D799DE29D3F97700EF4DD1 /* GaitRecorderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,13 +389,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		17D799E829D3F97900EF4DD1 /* GaitRecord.xcdatamodeld */ = {
+		17D799E829D3F97900EF4DD1 /* Gait.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */,
 			);
 			currentVersion = 17D799E929D3F97900EF4DD1 /* GaitRecorder.xcdatamodel */;
-			path = GaitRecord.xcdatamodeld;
+			path = Gait.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

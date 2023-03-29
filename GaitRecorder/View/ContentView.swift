@@ -2,23 +2,28 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) private var context
 
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.start_unixtime, order: .reverse)])
+    private var gaits: FetchedResults<Gait>
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.unixtime, order: .reverse)])
-    private var records: FetchedResults<GaitRecord>
+    private var steps: FetchedResults<Step>
+    
+    var dbManager = DBManager()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(records) { record in
-                    Text("\(recordString(record: record))")
+                ForEach(gaits) { gait in
+                    Text("\(gaitString(gait: gait))")
                 }
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem {
                     Button(action: {
-                        addAction(actionId: 1)
+                        addAction()
                     }) {
                         Label("Start", systemImage: "plus")
                     }
@@ -28,29 +33,30 @@ struct ContentView: View {
         }
     }
 
-    private func addAction(actionId: Int) {
-        withAnimation {
-            let record = GaitRecord(context: viewContext)
-            record.unixtime = Int64(unixtime())
-            record.action = Int32(actionId)
-            try? viewContext.save()
-        }
+    private func addAction() {
+        let nextRecordId = dbManager.getLastRecordId(gaits: gaits, steps: steps) + 1
+        dbManager.saveStep(
+            recordId: nextRecordId, actionId: 1, unixtime: unixtime(),
+            context: context)
+        dbManager.saveGait(
+            recordId: nextRecordId, startUnixtime: unixtime(), endUnixtime: unixtime() + 10000,
+            context: context)
     }
     
-    private func recordString(record: GaitRecord) -> String {
-        let unixtime = unixtimeToDateString(unixtimeMillis: Int(record.unixtime))
-        var action = ""
-        if (Int(record.action) == 1) { action = "START" }
-        else if (Int(record.action) == 2) { action = "LEFT" }
-        else if (Int(record.action) == 3) { action = "RIGHT" }
-        else if (Int(record.action) == 4) { action = "END" }
-        return "\(action) \(unixtime)"
+    private func gaitString(gait: Gait) -> String {
+        let start = unixtimeToDateString(unixtimeMillis: Int(gait.start_unixtime))
+        let end = unixtimeToTimeString(unixtimeMillis: Int(gait.start_unixtime))
+        return "\(Int(gait.record_id)): \(start) ~ \(end)"
     }
 
+    // RecordIdに紐づくGaitとStepを削除する。
     private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { records[$0] }.forEach(viewContext.delete)
-            try? viewContext.save()
+        offsets.forEach { index in
+            let record_id = Int(gaits[index].record_id)
+            context.performAndWait {
+                dbManager.deleteGait(gaits: gaits, recordId: record_id, context: context)
+                dbManager.deleteStep(steps: steps, recordId: record_id, context: context)
+            }
         }
     }
 }
